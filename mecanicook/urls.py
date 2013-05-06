@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
-from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
+from robochef import views
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -7,7 +8,8 @@ from django.views.generic.simple import direct_to_template
 
 urlpatterns = patterns(
     '',
-    url(r'^$', direct_to_template, {'template':'base.html'}),
+    url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url(r'^genetic/$', views.render_recipe, name="render_recipe"),
     # Examples:
     # url(r'^$', 'mecanicook.views.home', name='home'),
     # url(r'^mecanicook/', include('mecanicook.foo.urls')),

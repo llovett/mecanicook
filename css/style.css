@@ -1,0 +1,9 @@
+body {
+    background-image:url('/static/img/candlelight.png');
+    font: "Monaco", "Courier", monospace;
+}
+
+#content {
+    backgorund-color:white;
+    margin:0 auto 0 auto;
+}
