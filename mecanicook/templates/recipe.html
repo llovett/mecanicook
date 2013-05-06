@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h3>Your {{fitness_name|capfirst}} Recipe</h3>
+  <ul>
+    {% for ingredient in recipe %}
+      <li>{{ ingredient }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'home' %}">return</a>
+
+{% endblock %}

@@ -8,7 +8,7 @@ from robochef import views
 
 urlpatterns = patterns(
     '',
-    url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url(r'^$', TemplateView.as_view(template_name="index.html"), name="home"),
     url(r'^genetic/$', views.render_recipe, name="render_recipe"),
     # Examples:
     # url(r'^$', 'mecanicook.views.home', name='home'),

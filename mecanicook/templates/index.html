@@ -1,46 +1,18 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block content %}
 
-  <head>
-    <title>Mecanicook</title>
-    <link href='http://fonts.googleapis.com/css?family=Orbitron:400,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
-  </head>
-
-  <body>
-    <div id="bodywrap">
-      <div id="header">
-	<div id="logo">
-	  <img src="{{ STATIC_URL }}img/logo.png" id="logo_img" />
-	</div>
-	<h1>Mecanicook (RoboChef)</h1>
-	<h2>Me, Can I Cook?</h2>
-      </div>
-
-      <div id="content">
-	{% if recipe %}
-	  <h3>Your {{fitness_name|capfirst}} Recipe</h3>
-	  <ul>
-	    {% for ingredient in recipe %}
-	      <li>{{ ingredient }}</li>
-	    {% endfor %}
-	  </ul>
-	{% endif %}
-	<h3>What is my Purpose?</h3>
-	<p>I was manufactured in order to produce original recipes for optimal consumption by homo sapiens.</p>
-	<h3>Allow me to Serve</h3>
-	<form method="POST" action="/genetic/">
-	  {% csrf_token %}
-	  <div>
-	    <label for="fitness_func">I want a recipe that is</label>
-	    <input type="radio" name="fitness_func" value="balanced" checked="checked"><strong>balanced</strong><br />
-	    <input type="radio" name="fitness_func" value="healthy"><strong>healthy</strong><br />
-	    <input type="radio" name="fitness_func" value="dank"><strong>dank</strong><br />
-	  </div>
-	  <input type="submit" value="Actuate" />
-	</form>
-      </div>
+  <h3>What is my Purpose?</h3>
+  <p>I was manufactured in order to produce original recipes for optimal consumption by homo sapiens.</p>
+  <h3>Allow me to Serve</h3>
+  <form method="POST" action="/genetic/">
+    {% csrf_token %}
+    <div>
+      <label for="fitness_func">I want a recipe that is</label>
+      <input type="radio" name="fitness_func" value="balanced" checked="checked"><strong>balanced</strong><br />
+      <input type="radio" name="fitness_func" value="healthy"><strong>healthy</strong><br />
+      <input type="radio" name="fitness_func" value="dank"><strong>dank</strong><br />
     </div>
-  </body>
+    <input type="submit" value="Actuate" />
+  </form>
 
-</html>
+{% endblock %}
